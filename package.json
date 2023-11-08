@@ -1,5 +1,10 @@
 {
   "dependencies": {
+    "chromedriver": "^119.0.1",
+    "mocha": "^10.2.0",
     "selenium-webdriver": "^4.15.0"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }
