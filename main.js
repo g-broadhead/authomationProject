@@ -1,12 +1,14 @@
-const ScriptClass = require('./scriptClass');
+const ScriptClass2 = require('./scriptClass2');
 
 async function test() {
-    const scriptInstance = new ScriptClass();
+    const scriptInstance = new ScriptClass2();
 
     try {
         await scriptInstance.initialize();
         await scriptInstance.navigateTo("https://www.selenium.dev/selenium/web/web-form.html");
         // Perform other actions with the 'scriptInstance' as needed
+        await scriptInstance.textInput();
+        await scriptInstance.checkedCheckbox();
     } catch (error) {
         // Handle errors if needed
     } finally {

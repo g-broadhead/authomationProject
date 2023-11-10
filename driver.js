@@ -3,7 +3,7 @@ const chrome = require('selenium-webdriver/chrome');
 const options = new chrome.Options();
 
 const chromeOptions = [
-    '--headless',
+    // '--headless',
     '--start-maximized',
     '--incognito',
     '--disable-gpu', //Disables GPU hardware acceleration. This is often necessary when running Chrome in headless mode.

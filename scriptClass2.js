@@ -1,8 +1,8 @@
-// scriptClass.js
+// scriptClass2.js
 
 const initializeWebDriver = require('./driver')
 
-class ScriptClass {
+class ScriptClass2 {
     constructor() {
         this.driver = null;
     }
@@ -30,6 +30,21 @@ class ScriptClass {
         }
     }
 
+    async textInput() {
+        await this.driver.sleep(3000);
+        const textInput = await this.driver.findElement(By.name('my-text')).click();
+        await this.driver.sleep(9000);
+        await textInput.sendKeys('Test Text');
+        await this.driver.sleep(9000);
+    }
+
+    async checkedCheckbox() {
+        await this.driver.sleep(3000);
+        const checkedCheckbox = await this.driver.findElement(By.id('my-check-1')).click();
+        console.log('button clicked')
+        await this.driver.sleep(9000);
+    }
+
     async closeWebDriver() {
         if (this.driver) {
             await this.driver.quit();
@@ -38,4 +53,4 @@ class ScriptClass {
     }
 }
 
-module.exports = ScriptClass;
+module.exports = ScriptClass2;
