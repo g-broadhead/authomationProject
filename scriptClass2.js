@@ -1,6 +1,8 @@
 // scriptClass2.js
 
 const initializeWebDriver = require('./driver')
+const { By } = require('selenium-webdriver');
+
 
 class ScriptClass2 {
     constructor() {
@@ -31,19 +33,11 @@ class ScriptClass2 {
     }
 
     async textInput() {
-        await this.driver.sleep(3000);
-        console.log("before find element");
-        const textInput = await this.driver.findElement(By.id('my-text-id'));
-        console.log("after element found");
-        await this.driver.sleep(9000);
-        await textInput.sendKeys('Test Text');
+        await this.driver.findElement(By.id('my-text-id')).sendKeys('Test Text');
     }
 
     async checkedCheckbox() {
-        await this.driver.sleep(3000);
-        const checkedCheckbox = await this.driver.findElement(By.id('my-check-1')).click();
-        console.log('button clicked')
-        await this.driver.sleep(9000);
+        await this.driver.findElement(By.id('my-check-1')).click();
     }
 
     async closeWebDriver() {
