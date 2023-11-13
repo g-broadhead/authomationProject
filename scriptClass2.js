@@ -32,10 +32,11 @@ class ScriptClass2 {
 
     async textInput() {
         await this.driver.sleep(3000);
-        const textInput = await this.driver.findElement(By.name('my-text')).click();
+        console.log("before find element");
+        const textInput = await this.driver.findElement(By.id('my-text-id'));
+        console.log("after element found");
         await this.driver.sleep(9000);
         await textInput.sendKeys('Test Text');
-        await this.driver.sleep(9000);
     }
 
     async checkedCheckbox() {
