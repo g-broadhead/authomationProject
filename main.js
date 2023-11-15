@@ -8,6 +8,10 @@ async function test() {
         await scriptInstance.navigateTo("https://www.selenium.dev/selenium/web/web-form.html");
         // Perform other actions with the 'scriptInstance' as needed
         await scriptInstance.textInput();
+        await scriptInstance.passwordInput();
+        await scriptInstance.textAreaInput();
+        await scriptInstance.dropdownSelect();
+        await scriptInstance.dropdownSelectDatalist();
         await scriptInstance.checkedCheckbox();
     } catch (error) {
         // Handle errors if needed
