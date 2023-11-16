@@ -10,9 +10,13 @@ async function test() {
         await scriptInstance.textInput();
         await scriptInstance.passwordInput();
         await scriptInstance.textAreaInput();
+        await scriptInstance.returnToIndex();
         await scriptInstance.dropdownSelect();
-        await scriptInstance.dropdownSelectDatalist();
+        // await scriptInstance.dropdownSelectDatalist();
         await scriptInstance.checkedCheckbox();
+        await scriptInstance.defaultCheckbox();
+        await scriptInstance.checkedRadio();
+        await scriptInstance.defaultRadio();
     } catch (error) {
         // Handle errors if needed
     } finally {
