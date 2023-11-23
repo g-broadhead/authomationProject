@@ -12,11 +12,15 @@ async function test() {
         await scriptInstance.textAreaInput();
         await scriptInstance.returnToIndex();
         await scriptInstance.dropdownSelect();
-        // await scriptInstance.dropdownSelectDatalist();
+        await scriptInstance.dropdownSelectDatalist();
         await scriptInstance.checkedCheckbox();
         await scriptInstance.defaultCheckbox();
         await scriptInstance.checkedRadio();
         await scriptInstance.defaultRadio();
+        // await scriptInstance.fileInput();
+        // await scriptInstance.colorPicker();
+        // await scriptInstance.datePicker();
+        await scriptInstance.submitButton();
     } catch (error) {
         // Handle errors if needed
     } finally {

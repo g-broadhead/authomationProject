@@ -68,15 +68,8 @@ class ScriptClass2 {
     }
 
     async dropdownSelectDatalist() {
-        const datalistInput = await this.driver.findElement(By.name('my-datalist')).click();
-        // await this.driver.executeScript("arguments[0].value = 'Chi';", datalistInput);
-        // await datalistInput.click();
-        // await parentElement.click();
-        // await datalistInput.sendKeys('Chi');
-        const actions = new Actions(this.driver);
-        await actions.doubleClick(datalistInput).perform();
-        await this.driver.sleep(2000);
-        await this.driver.findElement(By.xpath("//datalist[@id='my-datalist']/option[text()='Chicago']")).click();
+        const datalistInput = await this.driver.findElement(By.name('my-datalist'))
+        await datalistInput.sendKeys('Chicago');
     }
 
     async checkedCheckbox() {
@@ -97,6 +90,41 @@ class ScriptClass2 {
     async defaultRadio() {
         await this.driver.findElement(By.id('my-radio-2')).click();
         console.log('Checking a unchecked radio passed!');
+    }
+
+    async fileInput() {
+        const fileInputButton = await this.driver.wait(until.elementLocated(By.name('my-file')), 10000);
+        await this.driver.wait(until.elementIsVisible(fileInputButton), 10000);
+        await fileInputButton.click();
+    }
+
+    async colorPicker() {
+        await this.driver.findElement(By.name('my-colors')).click();
+        await this.driver.wait(until.elementLocated(By.className('sp-container')), 10000);
+        const newColorOption = await driver.findElement(By.xpath('//div[@title="Red"]'));
+        await newColorOption.click();
+        console.log('Selected a new color successfully.');
+    }
+
+    async datePicker() {
+        await driver.findElement(By.name('my-date')).click();
+        await driver.wait(until.elementLocated(By.className('datepicker')), 10000);
+        const dayToSelect = await driver.findElement(By.xpath('//td[text()="15"]'));
+        await dayToSelect.click();
+        console.log('Date selected successfully.');
+    }
+
+    async submitButton() {
+        await this.driver.get('https://www.selenium.dev/selenium/web/web-form.html');
+        await this.driver.findElement(By.xpath('/html/body/main/div/form/div/div[2]/button')).click();
+        await this.driver.wait(until.urlContains('/submitted-form.html'), 10000);
+        const currentUrl = await this.driver.getCurrentUrl();
+        if (currentUrl.includes('/submitted-form.html')) {
+            console.log('The user submitted the form.');
+            await this.driver.navigate().back();
+        } else {
+            console.log('The user did NOT submit the form.');
+        }
     }
 
     async closeWebDriver() {
